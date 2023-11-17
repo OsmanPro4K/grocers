@@ -1,0 +1,17 @@
+.sign-btn, .cart-btn {
+  background-color: white;
+  transition: all 0.15s ease;
+}
+.sign-btn:hover, .cart-btn:hover {
+  color: #198754;
+  transform: translateY(-3px); /* Move the button up by 5 pixels */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add box shadow on hover */
+}
+
+.sec-navbar li a {
+  color: #198754;
+  transition: all 0.15s ease;
+}
+.sec-navbar li a:hover {
+  font-weight: bold;
+}

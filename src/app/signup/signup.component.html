@@ -1,0 +1,16 @@
+<div class="d-flex align-items-center justify-content-center center-container">
+  <div class="border border-dark p-5 w-25 rounded-4">
+    <form action="/signup/api" method="post" (submit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" #emailInput>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" #passwordInput>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+</div>

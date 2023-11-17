@@ -1,0 +1,61 @@
+<div class="row mt-3">
+  <div class="col-md-5 ms-auto me-auto">
+    <div class="list-group" *ngIf="productsInCart.length > 0; else elseBlock">
+      <div
+        class="list-group-item products-list d-flex align-items-center"
+        *ngFor="let product of productsInCart; let i = index"
+      >
+        <img
+          [src]="product.imageSrc"
+          [alt]="product.name"
+          style="width: 50px; margin-right: 10px"
+        />
+        <div class="flex-grow-1">
+          <p>
+            <span style="color: gray">{{ product.name }}</span> <br />
+            <span class="fw-bold"> {{ product.price }}KD/kg </span>
+          </p>
+        </div>
+        <div class="d-flex align-items-center">
+          <button
+            class="btn btn-outline-success me-2"
+            (click)="incrementItemAmount(product)"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          {{ product.amount }}
+          <button
+            class="btn btn-outline-danger ms-2"
+            (click)="decrementItemAmount(product)"
+          >
+            <i class="fa-solid fa-minus"></i>
+          </button>
+          <button class="btn btn-danger ms-2" (click)="onDeleteButtonClicked(i)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <ng-template #elseBlock>
+      <div class="list-group">
+        <p class="list-group-item">There are no items in the cart.</p>
+      </div>
+    </ng-template>
+  </div>
+  <div class="col-md-5 ms-auto me-auto w-25">
+    <button class="btn btn-primary mb-3" (click)="onUpdateResultClicked()">
+      Update Result
+    </button>
+    <div class="list-group">
+      <div class="list-group-item" *ngFor="let product of productsInCart">
+        <p>
+          {{ product.name }} x {{ product.amount }} &nbsp;&nbsp;&nbsp;
+          {{ (product.price * product.amount).toFixed(2) }} KD
+        </p>
+      </div>
+    </div>
+    +
+      <hr />
+      <h1 *ngIf="result > 0">{{ result }} KD</h1>
+  </div>
+</div>

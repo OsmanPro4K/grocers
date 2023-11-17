@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mx-auto" *ngFor="let product of products">
+      <div class="card mb-3" style="width: 18rem">
+        <img
+          [src]="product.imageSrc"
+          class="card-img-top img-thumbnail"
+          [alt]="product.name"
+        />
+        <div class="card-body">
+          <h5 class="card-title fs-1">{{ product.price }} <sup>KD</sup></h5>
+          <p class="card-text">{{ product.name }}</p>
+          <div class="d-flex justify-content-between">
+            <div class="align-self-start">
+              <button class="btn btn-outline-success" (click)="incrementItemAmount(product)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              {{ product.amount }}
+              <button class="btn btn-outline-danger" (click)="decrementItemAmount(product)">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+            </div>
+            <button
+              class="btn btn-success align-self-end"
+              (click)="onAddToCartClicked(product)"
+              title="Add to Cart"
+            >
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
